@@ -6,8 +6,9 @@ body {
     font-size: 36px;
 }
 
-#container{
+.container{
     background: #252525;
+    padding: 15px;
     border-radius: 10px;
 }
 
