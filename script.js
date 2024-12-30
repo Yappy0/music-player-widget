@@ -21,11 +21,19 @@ function playPause(e){
     }
 }
 
-function end(){
+function forward(){
     a.src = files[(song + 1) % files.length];
     a.load();
     a.play();
 }
 
+function backward(){
+    a.src = files[(song - 1) % files.length];
+    a.load();
+    a.play();
+}
+
 document.getElementById("playPauseBtn").addEventListener("click", playPause);
-a.addEventListener("ended", end);
+document.getElementById("nextTrackBtn").addEventListener("click", forward);
+document.getElementById("prevTrackBtn").addEventListener("click", backward);
+a.addEventListener("ended", forward);
