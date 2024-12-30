@@ -6,7 +6,7 @@ function getTitle(x){
 const urlParams = new URLSearchParams(window.location.search);
 let file = urlParams.get("file");
 let files = file.split("|");
-let titles = files.map(getTitle)
+let titles = files.map(getTitle);
 
 a = new Audio();
 a.src = files[0];
