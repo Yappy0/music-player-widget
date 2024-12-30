@@ -1,11 +1,18 @@
+function getTitle(x){
+    a = x.split("/");
+    return a[a.length - 1];
+}
+
 const urlParams = new URLSearchParams(window.location.search);
 let file = urlParams.get("file");
 let files = file.split("|");
-let titles = files.map(x => x.split("/")[-1])
+let titles = files.map(getTitle)
 
 a = new Audio();
 a.src = files[0];
+document.getElementById("trackTitle").innerHTML = titles[0];
 song = 0;
+
 let playing = false;
 
 function playPause(e){
