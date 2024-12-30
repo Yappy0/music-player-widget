@@ -1,9 +1,11 @@
 const urlParams = new URLSearchParams(window.location.search);
-file = urlParams.get("file");
+let file = urlParams.get("file");
+let files = file.split("|");
 
 a = new Audio();
-a.src = file;
-var playing = false;
+a.src = files[0];
+song = 0;
+let playing = false;
 
 function playPause(e){
     playing = !playing;
@@ -19,4 +21,11 @@ function playPause(e){
     }
 }
 
+function end(){
+    a.src = files[(song + 1) % files.length];
+    a.load();
+    a.play();
+}
+
 document.getElementById("playPauseBtn").addEventListener("click", playPause);
+a.addEventListener("ended", end);
