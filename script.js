@@ -30,7 +30,7 @@ function forward(){
 
 function backward(){
     a.src = files[(song - 1) % files.length];
-    song += 1;
+    song -= 1;
     a.load();
     a.play();
 }
