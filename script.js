@@ -1,6 +1,7 @@
 const urlParams = new URLSearchParams(window.location.search);
 let file = urlParams.get("file");
 let files = file.split("|");
+let titles = files.map(x => x.split("/")[-1])
 
 a = new Audio();
 a.src = files[0];
@@ -22,15 +23,17 @@ function playPause(e){
 }
 
 function forward(){
-    a.src = files[(song + 1) % files.length];
     song += 1;
+    a.src = files[(song) % files.length];
+    document.getElementById("trackTitle").innerHTML = titles[song % files.length];
     a.load();
     a.play();
 }
 
 function backward(){
-    a.src = files[(song - 1) % files.length];
     song -= 1;
+    a.src = files[(song) % files.length];
+    document.getElementById("trackTitle").innerHTML = titles[song % files.length];
     a.load();
     a.play();
 }
