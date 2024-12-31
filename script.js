@@ -33,6 +33,8 @@ function forward(){
     song += 1;
     a.src = files[(song) % files.length];
     document.getElementById("trackTitle").innerHTML = titles[song % files.length];
+    playPauseBtn.classList.remove("bi-play-fill");
+    playPauseBtn.classList.add("bi-pause-fill");
     a.load();
     a.play();
 }
@@ -41,6 +43,8 @@ function backward(){
     song -= 1;
     a.src = files[(song) % files.length];
     document.getElementById("trackTitle").innerHTML = titles[song % files.length];
+    playPauseBtn.classList.remove("bi-play-fill");
+    playPauseBtn.classList.add("bi-pause-fill");
     a.load();
     a.play();
 }
